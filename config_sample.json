@@ -1,0 +1,7 @@
+{
+	"news": ["news1.png", "news2.png"],
+	"newsInterval": "10",
+	"departureInterval": "20",
+	"reloadInterval": "60",
+	"departureUrl": "https://www.mvg.de/api/fib/v2/departure?globalId=de:09162:6&limit=20"
+}

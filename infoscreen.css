@@ -1,0 +1,73 @@
+html {
+	overflow: hidden;
+}
+body {
+	margin: 0;
+	font-family: sans-serif;
+}
+
+main {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+}
+iframe,
+img {
+	width: 100%;
+	height: 100vh;
+	border: unset;
+	object-fit: contain;
+}
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+table tr,
+table td {
+	padding-block: 0.5rem;
+	padding-inline: 0.5rem;
+}
+td,
+th {
+	height: 3rem;
+	font-size: 1.2rem;
+}
+th {
+	background-color: hsl(306, 57%, 30%);
+	color: white;
+	font-weight: 800;
+	font-size: 1.3rem;
+}
+tr:nth-child(even) {
+	background-color: hsl(0, 0%, 90%);
+}
+tr:nth-child(odd) {
+	background-color: hsl(0, 0%, 80%);
+}
+
+span {
+	display: inline-block;
+	width: 2rem;
+	height: 2rem;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+span.UBAHN {
+	background-image: url(https://www.mvg.de/.resources/mvgde-icons/color/transport-ubahn.svg);
+}
+span.SBAHN {
+	background-image: url(https://www.mvg.de/.resources/mvgde-icons/color/transport-sbahn.svg);
+}
+span.BUS {
+	background-image: url(https://www.mvg.de/.resources/mvgde-icons/color/transport-bus.svg);
+}
+span.TRAM {
+	background-image: url(https://www.mvg.de/.resources/mvgde-icons/color/transport-tram.svg);
+}
+
+.news img[src=""] {
+	content: url(https://azubiwerk-muenchen.de/images/lgo-azubiwerk-header.svg);
+	filter: brightness(0);
+	scale: 0.75;
+}
