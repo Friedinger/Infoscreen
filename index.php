@@ -3,12 +3,10 @@
 
 <head>
 	<title>Infoscreen</title>
-
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link rel="stylesheet" type="text/css" href="infoscreen.css" />
-
-	<script type="text/javascript" src="main.js"></script>
+	<script type="text/javascript" src="infoscreen.js"></script>
 </head>
 
 <body>
