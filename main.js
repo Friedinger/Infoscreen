@@ -2,7 +2,6 @@ window.onload = () => {
 	fetch("config.json")
 		.then((response) => response.json())
 		.then((config) => {
-			console.log(config);
 			departures(config);
 			news(config);
 			setTimeout(() => {
@@ -42,7 +41,6 @@ function loadDepartures(config) {
 			});
 			data.forEach((element) => {
 				let timeReal = element.realtimeDepartureTime;
-				let timePlan = element.plannedDepartureTime;
 				let timeIn =
 					element.realtimeDepartureTime - new Date().getTime();
 				let timeDelay =
@@ -52,16 +50,23 @@ function loadDepartures(config) {
 				let row = document.createElement("tr");
 				row.classList.add("tr");
 				row.innerHTML = `
-					<td><span class="${element.transportType}"></span>${textOutput(
-					element.label
-				)}</td>
-					<td>${textOutput(element.destination)}</td>
-					<td>${textOutput(element.platform, element.stopPositionNumber)}</td>
-					<td>${timeOutput(timeReal)}</td><td>${timeOutput(timePlan)}</td>
-					<td>${timeOutput(timeIn, "offset")}</td><td>${timeOutput(
-					timeDelay,
-					"delay"
-				)}</td>
+					<td class="line">
+						<span class="type ${element.transportType}"></span>
+						<span class="label">${textOutput(element.label)}</span>
+					</td>
+					<td class="destination">
+						${textOutput(element.destination)}
+					</td>
+					<td class="platform">
+						${textOutput(element.platform, element.stopPositionNumber)}
+					</td>
+					<td class="time real">
+						${timeOutput(timeReal)}
+					</td>
+					<td class="time in">
+						${timeOutput(timeIn, "offset")}
+					</td>
+					${delayOutput(timeDelay)}
 				`;
 				departure.appendChild(row);
 			});
@@ -93,4 +98,15 @@ function timeOutput(time, format = "clock") {
 			if (output < 0) return "- " + Math.abs(output) + " min";
 			if (output == 0) return "pünktlich";
 	}
+}
+
+function delayOutput(timeDelay) {
+	let time = timeOutput(timeDelay, "delay");
+	let color = "intime";
+	if (time.startsWith("+")) color = "delayed";
+	return `
+		<td class="time delay ${color}">
+			${time}
+		</td>
+	`;
 }

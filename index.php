@@ -20,7 +20,6 @@
 					<th>Ziel</th>
 					<th>Plattform</th>
 					<th>Real</th>
-					<th>Plan</th>
 					<th>In</th>
 					<th>Verspätung</th>
 				</tr>

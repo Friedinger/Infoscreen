@@ -44,7 +44,14 @@ tr:nth-child(odd) {
 	background-color: hsl(0, 0%, 80%);
 }
 
-span {
+.line {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	font-weight: bold;
+}
+
+.type {
 	display: inline-block;
 	width: 2rem;
 	height: 2rem;
@@ -53,17 +60,24 @@ span {
 	background-position: center;
 }
 
-span.UBAHN {
+.UBAHN {
 	background-image: url(https://www.mvg.de/.resources/mvgde-icons/color/transport-ubahn.svg);
 }
-span.SBAHN {
+.SBAHN {
 	background-image: url(https://www.mvg.de/.resources/mvgde-icons/color/transport-sbahn.svg);
 }
-span.BUS {
+.BUS {
 	background-image: url(https://www.mvg.de/.resources/mvgde-icons/color/transport-bus.svg);
 }
-span.TRAM {
+.TRAM {
 	background-image: url(https://www.mvg.de/.resources/mvgde-icons/color/transport-tram.svg);
+}
+
+.intime {
+	color: green;
+}
+.delayed {
+	color: red;
 }
 
 .news img[src=""] {
