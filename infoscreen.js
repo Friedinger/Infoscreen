@@ -32,7 +32,9 @@ function departures(config) {
 }
 
 function loadDepartures(config) {
-	fetch(config.departureUrl)
+	const url =
+		"https://corsproxy.io/?" + encodeURIComponent(config.departureUrl);
+	fetch(url)
 		.then((response) => response.json())
 		.then((data) => {
 			let departure = document.querySelector(".departure table");
