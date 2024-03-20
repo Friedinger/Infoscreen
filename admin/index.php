@@ -79,7 +79,7 @@ function settings()
 <body>
 	<main>
 		<h1>Infoscreen Admin</h1>
-		<p><a href="/">Zurück zum Infoscreen</a></p>
+		<p><a href="../">Zurück zum Infoscreen</a></p>
 		<h3>News hinzufügen</h3>
 		<p>Es können nur Bilder hochgeladen werden mit einer Größe von maximal 50MB.</p>
 		<form method="post" enctype="multipart/form-data">
