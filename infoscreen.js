@@ -1,5 +1,5 @@
 window.onload = () => {
-	fetch("config.json")
+	fetch("config.json?t=" + new Date().getTime())
 		.then((response) => response.json())
 		.then((config) => {
 			departures(config);
@@ -33,7 +33,10 @@ function departures(config) {
 
 function loadDepartures(config) {
 	const url =
-		"https://corsproxy.io/?" + encodeURIComponent(config.departureUrl);
+		"https://corsproxy.io/?" +
+		encodeURIComponent(config.departureUrl) +
+		"&t=" +
+		new Date().getTime();
 	fetch(url)
 		.then((response) => response.json())
 		.then((data) => {
