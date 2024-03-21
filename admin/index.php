@@ -1,6 +1,6 @@
 <?php
 
-if (!class_exists("Auth")) {
+if (!function_exists("auth")) {
 	require __DIR__ . "/../auth.php";
 }
 

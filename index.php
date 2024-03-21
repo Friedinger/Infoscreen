@@ -1,6 +1,6 @@
 <?php
 
-if (!class_exists("Auth")) {
+if (!function_exists("auth")) {
 	require __DIR__ . "/auth.php";
 }
 
@@ -33,5 +33,5 @@ switch ($uri) {
 		require __DIR__ . "/api/index.php";
 		break;
 	default:
-		Auth::error();
+		error();
 }
