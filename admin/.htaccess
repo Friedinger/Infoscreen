@@ -1,0 +1,7 @@
+AuthType Basic
+AuthName "Bitte anmelden"
+AuthUserFile /usr/www/users/httpvy/infoscreen/.htpasswd
+<If "%{HTTP_HOST} =~ /localhost/">
+    Require all granted
+</If>
+Require valid-user

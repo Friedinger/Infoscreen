@@ -1,5 +1,5 @@
 window.onload = () => {
-	fetch("config.json?t=" + new Date().getTime())
+	fetch("config.json" + window.location.search + "&t=" + new Date().getTime())
 		.then((response) => response.json())
 		.then((config) => {
 			departures(config);
@@ -25,18 +25,14 @@ function news(config) {
 }
 
 function departures(config) {
-	loadDepartures(config);
+	loadDepartures();
 	setInterval(() => {
-		loadDepartures(config);
+		loadDepartures();
 	}, (config.departureInterval ?? 20) * 1000);
 }
 
-function loadDepartures(config) {
-	const url =
-		"https://corsproxy.io/?" +
-		encodeURIComponent(config.departureUrl) +
-		"&t=" +
-		new Date().getTime();
+function loadDepartures() {
+	const url = "api" + window.location.search + "&t=" + new Date().getTime();
 	fetch(url)
 		.then((response) => response.json())
 		.then((data) => {

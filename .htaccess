@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteCond %{REQUEST_URI} !/news/
+RewriteCond %{REQUEST_URI} !/admin/
+RewriteRule ^(.*)$ index.php [L]
