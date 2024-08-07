@@ -81,7 +81,7 @@ tr:nth-child(odd) {
 }
 
 .news img[src=""] {
-	content: url(https://azubiwerk-muenchen.de/images/lgo-azubiwerk-header.svg);
+	content: url(https://cdn.prod.website-files.com/64d11728a06601a00aeea217/64d11cdeec6fe190c94e7650_lgo%20azubiwerk%20header.svg);
 	filter: brightness(0);
 	scale: 0.75;
 }

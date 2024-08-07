@@ -1,5 +1,5 @@
 window.onload = () => {
-	fetch("config.json" + window.location.search + "&t=" + new Date().getTime())
+	fetch("config.json?t=" + new Date().getTime())
 		.then((response) => response.json())
 		.then((config) => {
 			departures(config);
@@ -25,15 +25,14 @@ function news(config) {
 }
 
 function departures(config) {
-	loadDepartures();
+	loadDepartures(config.departureUrl);
 	setInterval(() => {
-		loadDepartures();
+		loadDepartures(config.departureUrl);
 	}, (config.departureInterval ?? 20) * 1000);
 }
 
-function loadDepartures() {
-	const url = "api" + window.location.search + "&t=" + new Date().getTime();
-	fetch(url)
+function loadDepartures(url) {
+	fetch(url + "&t=" + new Date().getTime())
 		.then((response) => response.json())
 		.then((data) => {
 			let departure = document.querySelector(".departure table");

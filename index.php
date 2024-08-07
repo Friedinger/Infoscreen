@@ -1,37 +1,33 @@
-<?php
+<!DOCTYPE html>
+<html lang="de">
 
-if (!function_exists("auth")) {
-	require __DIR__ . "/auth.php";
-}
+<head>
+	<title>Infoscreen</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="icon" type="image/png" href="https://cdn.prod.website-files.com/64d11728a06601a00aeea217/64d117eaec6fe190c947cfbc_favicon.png" />
+	<link rel="stylesheet" type="text/css" href="infoscreen.css" />
+	<script type="text/javascript" src="infoscreen.js"></script>
+</head>
 
-$config = json_decode(file_get_contents(__DIR__ . "/config.json"), true);
+<body>
+	<main>
+		<section class="departure">
+			<table>
+				<tr class="th">
+					<th>Linie</th>
+					<th>Ziel</th>
+					<th>Plattform</th>
+					<th>Real</th>
+					<th>In</th>
+					<th>Verspätung</th>
+				</tr>
+			</table>
+		</section>
+		<section class="news">
+			<img id="news" src="" alt="News" />
+		</section>
+	</main>
+</body>
 
-$installPath = $config["installPath"];
-$installPath = rtrim($installPath, "/") . "/";
-$installPath = "/" . ltrim($installPath, "/");
-$uri = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
-$uri = explode($installPath, $uri, 2)[1] ?? $uri;
-$uri = "/" . ltrim($uri, "/");
-
-switch ($uri) {
-	case "/":
-		require __DIR__ . "/infoscreen.php";
-		break;
-	case "/config.json":
-		header("Content-Type: application/json");
-		require __DIR__ . "/config.json";
-		break;
-	case "/infoscreen.css":
-		header("Content-Type: text/css");
-		require __DIR__ . "/infoscreen.css";
-		break;
-	case "/infoscreen.js":
-		header("Content-Type: text/javascript");
-		require __DIR__ . "/infoscreen.js";
-		break;
-	case "/api/":
-		require __DIR__ . "/api/index.php";
-		break;
-	default:
-		error();
-}
+</html>

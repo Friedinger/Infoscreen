@@ -1,9 +1,5 @@
 <?php
 
-if (!function_exists("auth")) {
-	require __DIR__ . "/../auth.php";
-}
-
 $GLOBALS["config"] = json_decode(file_get_contents(__DIR__ . "/../config.json"), true);
 
 function add()
@@ -75,6 +71,7 @@ function settings()
 	<title>Infoscreen Admin</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="icon" type="image/png" href="https://cdn.prod.website-files.com/64d11728a06601a00aeea217/64d117eaec6fe190c947cfbc_favicon.png" />
 	<style>
 		body {
 			font-family: sans-serif;
