@@ -1,0 +1,22 @@
+# Sensitive files
+.htpasswd
+
+# IDE-specific files
+.vscode/
+.idea/
+
+# OS-specific files
+Thumbs.db
+.DS_Store
+
+# Configuration files
+config.json
+.env
+*.local
+
+# News files
+/news/*
+!news/.gitkeep
+
+# Other local files
+notes.md
