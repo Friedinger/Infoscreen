@@ -1,3 +1,7 @@
+<Files ".htpasswd">
+    Require all denied
+</Files>
+
 AuthType Basic
 AuthName "Bitte anmelden"
 AuthUserFile /usr/www/users/httpvy/infoscreen/.htpasswd
