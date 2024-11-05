@@ -49,7 +49,7 @@ function remove()
 
 	// Check if news exists
 	$index = array_search($news, $GLOBALS["config"]["news"]);
-	if (!$index) return "Datei nicht gefunden";
+	if ($index === false) return "Datei nicht gefunden";
 
 	// Delete news file
 	$delete = unlink(__DIR__ . "/../news/" . $news);
