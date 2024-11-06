@@ -17,7 +17,7 @@
 				<tr class="th">
 					<th>Linie</th>
 					<th>Ziel</th>
-					<th>Plattform</th>
+					<th>Halt</th>
 					<th>Real</th>
 					<th>In</th>
 					<th>Verspätung</th>

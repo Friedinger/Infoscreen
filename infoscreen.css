@@ -1,56 +1,59 @@
-html {
-	overflow: hidden;
-}
+/* --- General --- */
+
 body {
 	margin: 0;
 	font-family: sans-serif;
 }
-
 main {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 }
-iframe,
-img {
-	width: 100%;
+
+/* --- Departure --- */
+
+.departure {
 	height: 100vh;
-	border: unset;
-	object-fit: contain;
+	overflow-y: hidden;
 }
 table {
 	border-collapse: collapse;
 	width: 100%;
 }
-table tr,
+table th,
 table td {
-	padding-block: 0.5rem;
-	padding-inline: 0.5rem;
-}
-td,
-th {
+	padding: 0.5rem;
 	height: 3rem;
-	font-size: 1.2rem;
+	font-size: 1.3rem;
 }
-th {
+table td:first-child,
+table th:first-child {
+	padding-left: 1rem;
+}
+table td:last-child,
+table th:last-child {
+	padding-right: 1rem;
+}
+table th {
 	background-color: hsl(306, 57%, 30%);
 	color: white;
 	font-weight: 800;
-	font-size: 1.3rem;
+	text-transform: uppercase;
+	text-align: left;
 }
-tr:nth-child(even) {
+table tr:nth-child(even) {
 	background-color: hsl(0, 0%, 90%);
 }
-tr:nth-child(odd) {
+table tr:nth-child(odd) {
 	background-color: hsl(0, 0%, 80%);
 }
 
+/* Departure entries */
 .line {
 	display: flex;
 	align-items: center;
 	gap: 0.5rem;
 	font-weight: bold;
 }
-
 .type {
 	display: inline-block;
 	width: 2rem;
@@ -59,7 +62,6 @@ tr:nth-child(odd) {
 	background-repeat: no-repeat;
 	background-position: center;
 }
-
 .UBAHN {
 	background-image: url(https://www.mvg.de/.resources/mvgde-icons/color/transport-ubahn.svg);
 }
@@ -72,7 +74,6 @@ tr:nth-child(odd) {
 .TRAM {
 	background-image: url(https://www.mvg.de/.resources/mvgde-icons/color/transport-tram.svg);
 }
-
 .intime {
 	color: green;
 }
@@ -80,6 +81,18 @@ tr:nth-child(odd) {
 	color: red;
 }
 
+/* --- News --- */
+
+.news {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.news img {
+	width: 100%;
+	height: auto;
+	object-fit: contain;
+}
 .news img[src=""] {
 	content: url(https://cdn.prod.website-files.com/64d11728a06601a00aeea217/64d11cdeec6fe190c94e7650_lgo%20azubiwerk%20header.svg);
 	filter: brightness(0);
