@@ -13,7 +13,7 @@ function add()
 	if ($file["error"] != 0) return "Fehler beim Hochladen der Datei";
 	if (file_exists(__DIR__ . "/../news/" . $file["name"])) return "Datei existiert bereits";
 	if (!getimagesize($file["tmp_name"])) return "Datei ist kein Bild";
-	if ($file["size"] > 50 * 1024 * 1024) return "Datei ist zu groß";
+	if ($file["size"] > 10_000_000) return "Datei ist zu groß";
 
 	// Store file
 	$move = move_uploaded_file($file["tmp_name"], __DIR__ . "/../news/" . $file["name"]);
@@ -109,7 +109,7 @@ function settings()
 		<h1>Infoscreen Admin</h1>
 		<p><a href="../">Zurück zum Infoscreen</a></p>
 		<h3>News hinzufügen</h3>
-		<p>Es können nur Bilder hochgeladen werden mit einer Größe von maximal 50MB.</p>
+		<p>Es können nur Bilder hochgeladen werden mit einer Größe von maximal 10MB.</p>
 		<form method="post" enctype="multipart/form-data">
 			<input type="hidden" name="action" value="add">
 			<input type="file" name="file">
@@ -118,6 +118,7 @@ function settings()
 		</form>
 		<br>
 		<h3>News löschen</h3>
+		<?php $remove = remove(); ?>
 		<form method="post" enctype="multipart/form-data">
 			<input type="hidden" name="action" value="remove">
 			<select name="news">
@@ -125,7 +126,7 @@ function settings()
 				<?php newsSelect(); ?>
 			</select>
 			<input type="submit" name="submit" value="Löschen">
-			<label><?php echo remove(); ?></label>
+			<label><?php echo $remove; ?></label>
 		</form>
 		<br>
 		<h3>Einstellungen</h3>
