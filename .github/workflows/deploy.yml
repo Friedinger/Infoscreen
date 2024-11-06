@@ -1,0 +1,28 @@
+name: Deploy
+
+on:
+    push:
+        branches: ["main"]
+
+jobs:
+    build:
+        name: Build and deploy
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Get files
+              uses: actions/checkout@v3
+            - name: Web deploy
+              uses: SamKirkland/web-deploy@v1
+              with:
+                  target-server: ${{ secrets.TARGET_SERVER }}
+                  remote-user: ${{ secrets.REMOTE_USER }}
+                  private-ssh-key: ${{ secrets.SSH_KEY }}
+                  source-path: ./
+                  destination-path: ${{ secrets.DESTINATION_PATH }}
+                  rsync-options:
+                      --archive --verbose --compress --human-readable --progress --delete-after
+                      --exclude=.git/ --exclude=.gitignore --exclude=.gitmodules --exclude=.github/
+                      --exclude=README.md --exclude=readme.md --exclude=LICENSE
+                      --exclude=.htaccess --exclude=.htpasswd
+                      --exclude=config.json --exclude=config_sample.json --exclude=news/
