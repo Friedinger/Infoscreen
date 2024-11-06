@@ -89,8 +89,10 @@ table tr:nth-child(odd) {
 	justify-content: center;
 }
 .news img {
-	width: 100%;
-	height: auto;
+	height: 100%;
+	width: auto;
+	max-height: 100vh;
+	max-width: 100%;
 	object-fit: contain;
 }
 .news img[src=""] {
