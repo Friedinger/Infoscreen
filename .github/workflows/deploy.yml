@@ -11,7 +11,7 @@ jobs:
 
         steps:
             - name: Get files
-              uses: actions/checkout@v3
+              uses: actions/checkout@v4
             - name: Web deploy
               uses: SamKirkland/web-deploy@v1
               with:
