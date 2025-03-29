@@ -47,6 +47,7 @@ Interval for reloading page is required to get new settings if infoscreen is dis
 
     - Set url to webserver in `fullpageos.txt`
     - Set wifi credentials in `wifi.nmconnection` (if needed)
+    - Change `splash.png` for a custom boot logo (optional)
 
 3. Insert SD card into raspberry pi and boot
 
@@ -61,11 +62,13 @@ Interval for reloading page is required to get new settings if infoscreen is dis
     Replace `yourpassword` with your desired password,
     reboot to apply changes.
 
-6. Done, the infoscreen should be displayed on the screen connected to the raspberry pi.
+6. Optionally change background image in `/opt/custompios/background.png`. It can be uploaded via `scp`.
+
+7. Done, the infoscreen should be displayed on the screen connected to the raspberry pi.
 
 ### Displaying infoscreen if protected with login
 
-If the infoscreen is protected with a login, you need extend some of the scripts located in `~/scripts/`. The following changes work if the login can be automatically filled by the chromium password manager and just need to be sent with the enter key, for example if the login is protected with http basic auth using `.htaccess` and `.htpasswd`.
+If the infoscreen is protected with a login, you need to extend some of the scripts located in `~/scripts/`. The following changes work if the login can be automatically filled by the chromium password manager and just need to be sent with the enter key, for example if the login is protected with http basic auth using `.htaccess` and `.htpasswd`.
 
 1. Connect to raspberry pi via VNC or physical keyboard and mouse, login to your infoscreen and store the credentials in chromium password manager.
 
