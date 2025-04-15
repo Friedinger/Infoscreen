@@ -1,4 +1,4 @@
-name: Deploy
+name: Build and deploy
 
 on:
     push:
@@ -12,6 +12,12 @@ jobs:
         steps:
             - name: Get files
               uses: actions/checkout@v4
+
+            - name: Output commit hash
+              run: |
+                  SHORT_HASH=$(echo "${GITHUB_SHA::7}")
+                  ed -i "s/{{COMMIT_HASH}}/$SHORT_HASH/g" index.php admin/index.php
+
             - name: Web deploy
               uses: SamKirkland/web-deploy@v1
               with:

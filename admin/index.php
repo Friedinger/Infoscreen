@@ -144,8 +144,9 @@ function settings()
 		<h3>Credits</h3>
 		<p>
 			Infoscreen &#169; <?= date("Y") ?> Azubiwerk München<br>
-			Version 1.0<br>
-			Entwickelt von <a href="https://friedinger.org/">Manuel Weis</a>
+			Version: {{COMMIT_HASH}}<br>
+			Entwickelt von <a href="https://friedinger.org/" target="_blank">Manuel Weis</a><br>
+			Code: <a href="https://github.com/Friedinger/Infoscreen" target="_blank">https://github.com/Friedinger/Infoscreen</a>
 		</p>
 	</main>
 </body>

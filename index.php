@@ -30,7 +30,7 @@
 				Azubiwerk München<br>
 				Infoscreen
 			</h1>
-			<p>{{ LOCAL }}</p>
+			<p>Version: {{COMMIT_HASH}}</p>
 			<p>github.com/Friedinger/Infoscreen</p>
 		</section>
 		<section class="news">
