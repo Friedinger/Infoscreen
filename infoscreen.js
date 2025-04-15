@@ -46,7 +46,7 @@ window.onload = async () => {
 		}, getConfigValue("newsInterval") * 1000);
 	}
 
-	function departures(config) {
+	function departures() {
 		const departureTable = document.querySelector(".departure table");
 		updateDepartures(config.departureUrl);
 		setInterval(() => {
