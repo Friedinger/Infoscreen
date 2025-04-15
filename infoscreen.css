@@ -141,7 +141,7 @@ table tr:nth-child(odd) {
 	left: -100%;
 	width: 10000%;
 	height: 10000%;
-	background-image: var(--url, url(https://cdn.prod.website-files.com/64d11728a06601a00aeea217/64d11cdeec6fe190c94e7650_lgo%20azubiwerk%20header.svg));
+	background: var(--url);
 	background-size: cover;
 	content: "";
 	filter: blur(100px);
