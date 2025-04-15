@@ -5,8 +5,8 @@ body {
 	width: auto;
 	height: 100vh;
 	margin: 0;
-	font-family: sans-serif;
 	background: hsl(306, 57%, 30%);
+	font-family: sans-serif;
 }
 main {
 	display: flex;
