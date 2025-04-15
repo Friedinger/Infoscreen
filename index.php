@@ -24,6 +24,15 @@
 				</tr>
 			</table>
 		</section>
+		<section class="text">
+			<img src="https://cdn.prod.website-files.com/64d11728a06601a00aeea217/64d1204dc148da73086e0bdd_Haus%20lila.svg" alt="Logo" />
+			<h1>
+				Azubiwerk München<br>
+				Infoscreen
+			</h1>
+			<p>{{ LOCAL }}</p>
+			<p>github.com/Friedinger/Infoscreen</p>
+		</section>
 		<section class="news">
 			<img id="news" src="" alt="News" />
 		</section>

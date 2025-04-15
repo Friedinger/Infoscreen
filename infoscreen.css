@@ -1,28 +1,38 @@
 /* --- General --- */
 
 body {
+	aspect-ratio: 16 / 9;
+	width: auto;
+	height: 100vh;
 	margin: 0;
 	font-family: sans-serif;
 }
 main {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
+	display: flex;
+	height: 100%;
+}
+img {
+	max-width: 100%;
+	max-height: 100%;
+	object-fit: contain;
+	vertical-align: middle;
 }
 
 /* --- Departure --- */
 
 .departure {
-	height: 100vh;
+	flex: 0 0 50%;
+	height: 100%;
 	overflow-y: hidden;
 }
 table {
-	border-collapse: collapse;
 	width: 100%;
+	border-collapse: collapse;
 }
 table th,
 table td {
-	padding: 0.5rem;
 	height: 3rem;
+	padding: 0.5rem;
 	font-size: 1.3rem;
 }
 table td:first-child,
@@ -37,8 +47,8 @@ table th {
 	background-color: hsl(306, 57%, 30%);
 	color: white;
 	font-weight: 800;
-	text-transform: uppercase;
 	text-align: left;
+	text-transform: uppercase;
 }
 table tr:nth-child(even) {
 	background-color: hsl(0, 0%, 90%);
@@ -58,9 +68,9 @@ table tr:nth-child(odd) {
 	display: inline-block;
 	width: 2rem;
 	height: 2rem;
+	background-position: center;
 	background-size: contain;
 	background-repeat: no-repeat;
-	background-position: center;
 }
 .UBAHN {
 	background-image: url(https://www.mvg.de/.resources/mvgde-icons/color/transport-ubahn.svg);
@@ -81,22 +91,53 @@ table tr:nth-child(odd) {
 	color: red;
 }
 
+/* Text */
+
+.text {
+	display: flex;
+	position: relative;
+	flex: 1;
+	flex-direction: column;
+	align-items: center;
+	padding: 0.5rem;
+	overflow: hidden;
+	background: hsl(306, 57%, 30%);
+}
+
+.text img {
+	width: 100%;
+	margin: 0 0 1rem 0;
+	filter: invert(56%) sepia(95%) saturate(1814%) hue-rotate(2deg)
+		brightness(92%) contrast(105%);
+}
+
+.text h1 {
+	top: 0.5rem;
+	margin: 0;
+	margin-bottom: auto;
+	font-size: 4rem;
+	white-space: nowrap;
+	writing-mode: sideways-lr;
+}
+
+.text p {
+	margin: 0;
+	font-size: 0.75rem;
+}
+
 /* --- News --- */
 
 .news {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	aspect-ratio: 1 / 1.414;
+	max-width: 100%;
+	height: 100%;
 }
 .news img {
-	height: 100%;
 	width: auto;
-	max-height: 100vh;
-	max-width: 100%;
-	object-fit: contain;
+	height: 100%;
 }
 .news img[src=""] {
+	scale: 0.75;
 	content: url(https://cdn.prod.website-files.com/64d11728a06601a00aeea217/64d11cdeec6fe190c94e7650_lgo%20azubiwerk%20header.svg);
 	filter: brightness(0);
-	scale: 0.75;
 }
