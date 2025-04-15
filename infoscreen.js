@@ -12,15 +12,24 @@ window.onload = () => {
 
 function news(config) {
 	const newsDisplay = document.querySelector("#news");
+	const newsBackground = newsDisplay.parentElement;
 	const news = config.news;
 	if (config.news.length == 0) return;
 	let currentNews = 0;
 	newsDisplay.setAttribute("src", "news/" + news[currentNews]);
+	newsBackground.style.setProperty(
+		"--url",
+		"url('news/" + news[currentNews] + "')"
+	);
 	if (config.news.length == 1) return;
 	setInterval(() => {
 		currentNews++;
 		if (currentNews >= news.length) currentNews = 0;
 		newsDisplay.setAttribute("src", "news/" + news[currentNews]);
+		newsBackground.style.setProperty(
+			"--url",
+			"url('news/" + news[currentNews] + "')"
+		);
 	}, (config.newsInterval ?? 20) * 1000);
 }
 

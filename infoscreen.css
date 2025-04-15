@@ -6,6 +6,7 @@ body {
 	height: 100vh;
 	margin: 0;
 	font-family: sans-serif;
+	background: hsl(306, 57%, 30%);
 }
 main {
 	display: flex;
@@ -101,16 +102,13 @@ table tr:nth-child(odd) {
 	align-items: center;
 	padding: 0.5rem;
 	overflow: hidden;
-	background: hsl(306, 57%, 30%);
 }
-
 .text img {
 	width: 100%;
 	margin: 0 0 1rem 0;
 	filter: invert(56%) sepia(95%) saturate(1814%) hue-rotate(2deg)
 		brightness(92%) contrast(105%);
 }
-
 .text h1 {
 	top: 0.5rem;
 	margin: 0;
@@ -119,7 +117,6 @@ table tr:nth-child(odd) {
 	white-space: nowrap;
 	writing-mode: sideways-lr;
 }
-
 .text p {
 	margin: 0;
 	font-size: 0.75rem;
@@ -129,11 +126,25 @@ table tr:nth-child(odd) {
 
 .news {
 	display: flex;
+	position: relative;
 	align-items: center;
 	justify-content: center;
 	aspect-ratio: 1 / 1.414;
 	max-width: 100%;
 	height: 100%;
+	overflow: hidden;
+}
+.news::before {
+	z-index: -1;
+	position: absolute;
+	top: -100%;
+	left: -100%;
+	width: 10000%;
+	height: 10000%;
+	background-image: var(--url, url(https://cdn.prod.website-files.com/64d11728a06601a00aeea217/64d11cdeec6fe190c94e7650_lgo%20azubiwerk%20header.svg));
+	background-size: cover;
+	content: "";
+	filter: blur(100px);
 }
 .news img {
 	width: auto;
