@@ -2,9 +2,10 @@
 
 body {
 	aspect-ratio: 16 / 9;
-	width: auto;
+	width: 100%;
 	height: 100vh;
 	margin: 0;
+	overflow: hidden;
 	background: hsl(306, 57%, 30%);
 	font-family: sans-serif;
 }
@@ -105,17 +106,19 @@ table tr:nth-child(odd) {
 }
 .text img {
 	width: 100%;
-	margin: 0 0 1rem 0;
+	margin: 0;
+	margin-bottom: auto;
 	filter: invert(56%) sepia(95%) saturate(1814%) hue-rotate(2deg)
 		brightness(92%) contrast(105%);
 }
 .text h1 {
-	top: 0.5rem;
-	margin: 0;
-	margin-bottom: auto;
+	display: inline-block;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%) rotate(-90deg);
+	transform-origin: center;
 	font-size: 4rem;
 	white-space: nowrap;
-	transform: rotate(-90deg);
 }
 .text p {
 	margin: 0;
