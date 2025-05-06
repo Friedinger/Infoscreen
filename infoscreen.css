@@ -115,7 +115,7 @@ table tr:nth-child(odd) {
 	margin-bottom: auto;
 	font-size: 4rem;
 	white-space: nowrap;
-	writing-mode: sideways-lr;
+	transform: rotate(-90deg);
 }
 .text p {
 	margin: 0;
