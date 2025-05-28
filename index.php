@@ -31,7 +31,7 @@
 				Infoscreen
 			</h1>
 			<p>Version: {{COMMIT_HASH}}</p>
-			<p>github.com/Friedinger/Infoscreen</p>
+			<p>github.com/<wbr>Friedinger/<wbr>Infoscreen</p>
 		</section>
 		<section class="news">
 			<img id="news" src="" alt="News" />

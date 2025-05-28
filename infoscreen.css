@@ -122,7 +122,9 @@ table tr:nth-child(odd) {
 }
 .text p {
 	margin: 0;
+	margin-top: 0.25rem;
 	font-size: 0.75rem;
+	text-align: center;
 }
 
 /* --- News --- */
