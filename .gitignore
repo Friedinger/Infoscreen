@@ -1,22 +1,25 @@
-# Sensitive files
+# Node and build artifacts
+node_modules/
+dist/
+
+# Environment and config files
+.env
+.env.*.local
+*.local
+config.json
 .htpasswd
 
-# IDE-specific files
-.vscode/
-.idea/
-
-# OS-specific files
+# OS / system files
 Thumbs.db
 .DS_Store
 
-# Configuration files
-config.json
-.env
-*.local
+# IDE / editor
+.vscode/
+.idea/
 
-# News files
-/news/*
-!news/.gitkeep
+# Logs
+npm-debug.log*
+*.log
 
-# Other local files
+# Misc
 notes.md
