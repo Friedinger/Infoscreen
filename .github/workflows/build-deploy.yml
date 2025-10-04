@@ -6,7 +6,7 @@ on:
 
 jobs:
     build:
-        name: Build and deploy
+        name: Build
         runs-on: ubuntu-latest
 
         steps:
@@ -28,7 +28,7 @@ jobs:
             - name: Output commit hash
               run: |
                   SHORT_HASH=$(echo "${GITHUB_SHA::7}")
-                  sed -i "s/{{COMMIT_HASH}}/$SHORT_HASH/g" dist/index.html dist/admin/index.html
+                  sed -i "s/{{COMMIT_HASH}}/$SHORT_HASH/g" dist/index.html dist/admin/index.php
 
             - name: Upload build artifacts
               uses: actions/upload-artifact@v4
