@@ -60,6 +60,10 @@ function handlePost($configPath, $newsDir)
 	$fileName = preg_replace("/[^a-zA-Z0-9-_\\.]/", "", basename($file["name"]));
 	$targetPath = $newsDir . $fileName;
 
+	if (file_exists($targetPath)) {
+		sendResponse(409, ["error" => "File already exists."]);
+	}
+
 	if (!move_uploaded_file($file["tmp_name"], $targetPath)) {
 		sendResponse(500, ["error" => "Could not move uploaded file."]);
 	}

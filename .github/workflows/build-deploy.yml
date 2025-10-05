@@ -28,7 +28,7 @@ jobs:
             - name: Output commit hash
               run: |
                   SHORT_HASH=$(echo "${GITHUB_SHA::7}")
-                  sed -i "s/{{COMMIT_HASH}}/$SHORT_HASH/g" dist/index.html dist/admin/index.php
+                  sed -i "s/{$COMMIT_HASH$}/$SHORT_HASH/g" dist/index.html dist/admin/index.html
 
             - name: Upload build artifacts
               uses: actions/upload-artifact@v4

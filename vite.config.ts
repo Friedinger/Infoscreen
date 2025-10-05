@@ -2,9 +2,14 @@ import { defineConfig } from "vite";
 import { fileURLToPath, URL } from "node:url";
 import { viteSingleFile } from "vite-plugin-singlefile";
 import vue from "@vitejs/plugin-vue";
+import vuetify from "vite-plugin-vuetify";
 
 export default defineConfig(({ mode }) => ({
-    plugins: [vue(), mode === "development" ? null : viteSingleFile()],
+    plugins: [
+        vue(),
+        vuetify({ autoImport: true }),
+        mode === "development" ? null : viteSingleFile(),
+    ],
     root: "pages",
     publicDir: "../public",
     build: {
@@ -13,6 +18,7 @@ export default defineConfig(({ mode }) => ({
         },
         outDir: "../dist",
         emptyOutDir: mode === "development",
+        chunkSizeWarningLimit: 1000,
     },
     resolve: {
         alias: {
