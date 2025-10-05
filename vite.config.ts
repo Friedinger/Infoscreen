@@ -27,8 +27,8 @@ function inputs(mode: string) {
         ...(mode === "development" || mode === "index"
             ? { index: "pages/index.html" }
             : {}),
-        // ...(mode === "development" || mode === "admin"
-        //     ? { admin: "pages/admin/index.html" }
-        //     : {}),
+        ...(mode === "development" || mode === "admin"
+            ? { admin: "pages/admin/index.html" }
+            : {}),
     };
 }

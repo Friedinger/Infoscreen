@@ -1,7 +1,7 @@
 {
     "news": ["news1.png", "news2.png", "news3.png"],
-    "newsInterval": "10",
-    "departureInterval": "20",
-    "reloadInterval": "60",
+    "newsInterval": 10,
+    "departureInterval": 20,
+    "reloadInterval": 60,
     "departureUrl": "https://www.mvg.de/api/bgw-pt/v3/departures?globalId=de:09162:6&limit=20"
 }
