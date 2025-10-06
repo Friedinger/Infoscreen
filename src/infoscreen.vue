@@ -49,7 +49,7 @@ body {
     height: 100vh;
     margin: 0;
     overflow: hidden;
-    background: hsl(306, 57%, 30%);
+    background: rgb(var(--v-theme-primary));
     font-family: sans-serif;
 }
 body > #app {

@@ -1,34 +1,38 @@
 <template>
-    <table>
-        <tr class="th">
-            <th>Linie</th>
-            <th>Ziel</th>
-            <th>Halt</th>
-            <th>Real</th>
-            <th>In</th>
-            <th>Verspätung</th>
-        </tr>
-        <tr v-for="(departure, index) in departures" :key="index">
-            <td>
-                <transport-line :departure="departure" />
-            </td>
-            <td>{{ departure.destination }}</td>
-            <td>
-                {{ departure.platform }}
-            </td>
-            <td>
-                <time-clock :time="departure.realtimeDepartureTime" />
-            </td>
-            <td>
-                <time-offset :time="departure.realtimeDepartureTime" />
-            </td>
-            <td>
-                <time-delay
-                    :timeReal="departure.realtimeDepartureTime"
-                    :timePlanned="departure.plannedDepartureTime" />
-            </td>
-        </tr>
-    </table>
+    <v-table striped="even" fixed-header>
+        <thead>
+            <tr>
+                <th scope="col">Linie</th>
+                <th scope="col">Ziel</th>
+                <th scope="col">Halt</th>
+                <th scope="col">Real</th>
+                <th scope="col">In</th>
+                <th scope="col">Verspätung</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="(departure, index) in departures" :key="index">
+                <td>
+                    <transport-line :departure="departure" />
+                </td>
+                <td>{{ departure.destination }}</td>
+                <td>
+                    {{ departure.platform }}
+                </td>
+                <td>
+                    <time-clock :time="departure.realtimeDepartureTime" />
+                </td>
+                <td>
+                    <time-offset :time="departure.realtimeDepartureTime" />
+                </td>
+                <td>
+                    <time-delay
+                        :timeReal="departure.realtimeDepartureTime"
+                        :timePlanned="departure.plannedDepartureTime" />
+                </td>
+            </tr>
+        </tbody>
+    </v-table>
 </template>
 
 <script setup lang="ts">
@@ -81,38 +85,19 @@ function fetchDepartures() {
 </script>
 
 <style scoped>
-table {
+.v-table {
     flex: 0 0 50%;
     width: 100%;
     height: 100%;
     overflow-y: hidden;
     border-collapse: collapse;
+    font-size: 1.5rem;
 }
-table th,
-table td {
-    height: 3rem;
-    padding: 0.5rem;
-    font-size: 1.3rem;
-}
-table td:first-child,
-table th:first-child {
-    padding-left: 1rem;
-}
-table td:last-child,
-table th:last-child {
-    padding-right: 1rem;
-}
-table th {
-    background-color: hsl(306, 57%, 30%);
+::v-deep table th {
+    background-color: hsl(306, 57%, 30%) !important;
     color: white;
-    font-weight: 800;
+    font-weight: 800 !important;
     text-align: left;
     text-transform: uppercase;
-}
-table tr:nth-child(even) {
-    background-color: hsl(0, 0%, 90%);
-}
-table tr:nth-child(odd) {
-    background-color: hsl(0, 0%, 80%);
 }
 </style>
