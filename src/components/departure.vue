@@ -1,38 +1,49 @@
 <template>
-    <v-table striped="even" fixed-header>
-        <thead>
-            <tr>
-                <th scope="col">Linie</th>
-                <th scope="col">Ziel</th>
-                <th scope="col">Halt</th>
-                <th scope="col">Real</th>
-                <th scope="col">In</th>
-                <th scope="col">Verspätung</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr v-for="(departure, index) in departures" :key="index">
-                <td>
-                    <transport-line :departure="departure" />
-                </td>
-                <td>{{ departure.destination }}</td>
-                <td>
-                    {{ departure.platform }}
-                </td>
-                <td>
-                    <time-clock :time="departure.realtimeDepartureTime" />
-                </td>
-                <td>
-                    <time-offset :time="departure.realtimeDepartureTime" />
-                </td>
-                <td>
-                    <time-delay
-                        :timeReal="departure.realtimeDepartureTime"
-                        :timePlanned="departure.plannedDepartureTime" />
-                </td>
-            </tr>
-        </tbody>
-    </v-table>
+    <v-container class="pa-2">
+        <v-row
+            class="font-weight-bold text-uppercase"
+            style="background-color: hsl(306, 57%, 30%); color: white">
+            <v-col cols="2">Linie</v-col>
+            <v-col cols="4">Ziel</v-col>
+            <v-col cols="2">Halt</v-col>
+            <v-col cols="4">Zeit</v-col>
+        </v-row>
+        <v-row
+            v-for="(departure, index) in departures"
+            :key="index"
+            class="align-center"
+            :style="{
+                backgroundColor:
+                    index % 2 === 0 ? 'hsl(0, 0%, 90%)' : 'hsl(0, 0%, 80%)',
+            }">
+            <v-col cols="2">
+                <transport-line :departure="departure" />
+            </v-col>
+            <v-col cols="4">
+                {{ departure.destination }}
+            </v-col>
+            <v-col cols="2">
+                {{ departure.platform }}
+            </v-col>
+            <v-col cols="4">
+                <v-row no-gutters>
+                    <v-col cols="4">
+                        <time-clock :time="departure.realtimeDepartureTime" />
+                    </v-col>
+                    <v-col cols="4">
+                        <time-offset :time="departure.realtimeDepartureTime" />
+                    </v-col>
+                </v-row>
+                <v-row no-gutters>
+                    <v-col>
+                        <time-delay
+                            :timeReal="departure.realtimeDepartureTime"
+                            :timePlanned="departure.plannedDepartureTime" />
+                    </v-col>
+                </v-row>
+            </v-col>
+        </v-row>
+    </v-container>
 </template>
 
 <script setup lang="ts">
@@ -85,19 +96,12 @@ function fetchDepartures() {
 </script>
 
 <style scoped>
-.v-table {
+.v-container {
     flex: 0 0 50%;
     width: 100%;
     height: 100%;
     overflow-y: hidden;
     border-collapse: collapse;
     font-size: 1.5rem;
-}
-::v-deep table th {
-    background-color: hsl(306, 57%, 30%) !important;
-    color: white;
-    font-weight: 800 !important;
-    text-align: left;
-    text-transform: uppercase;
 }
 </style>
