@@ -11,12 +11,12 @@ jobs:
 
         steps:
             - name: Get files
-              uses: actions/checkout@v5
+              uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
 
             - name: Setup Node.js
-              uses: actions/setup-node@v6
+              uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6
               with:
-                  node-version: 24
+                  node-version: 24.10.0
                   cache: "npm"
 
             - name: Install dependencies
@@ -31,7 +31,7 @@ jobs:
                   sed -i "s/{$COMMIT_HASH$}/$SHORT_HASH/g" dist/index.html dist/admin/index.html
 
             - name: Upload build artifacts
-              uses: actions/upload-artifact@v4
+              uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
               with:
                   name: build-dist
                   path: ./dist/
@@ -43,13 +43,13 @@ jobs:
 
         steps:
             - name: Download build artifacts
-              uses: actions/download-artifact@v5
+              uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5
               with:
                   name: build-dist
                   path: ./
 
             - name: Web deploy
-              uses: SamKirkland/web-deploy@v1
+              uses: SamKirkland/web-deploy@8a74c6948a31575b5776ff1e8304d5c2aef5bdbd # v1
               with:
                   target-server: ${{ secrets.TARGET_SERVER }}
                   remote-user: ${{ secrets.REMOTE_USER }}
