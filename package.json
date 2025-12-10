@@ -23,7 +23,7 @@
         "vuetify": "3.11.3"
     },
     "devDependencies": {
-        "@types/node": "24.10.2",
+        "@types/node": "24.10.3",
         "@vitejs/plugin-vue": "6.0.2",
         "typescript": "5.9.3",
         "vite": "7.2.7",
